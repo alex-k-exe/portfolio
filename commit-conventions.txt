@@ -22,3 +22,5 @@
     List files changed, actions taken, reasons for commit (e.g. Reported issue)
     < 75 characters
     Be specfic, use terminology
+
+Primarily based on https://www.gitkraken.com/learn/git/best-practices/git-commit-message
