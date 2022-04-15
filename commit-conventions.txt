@@ -1,0 +1,24 @@
+## Conventions for Git commits
+
+# Commit Rules
+    Commit frequently: reduces number of files changed, increases specificity of the commit
+    Only include a few files in the commit, purposely
+
+# Types of commits
+    feat: feature
+    fix: bug fixes
+    docs: changes to documentation (e.g. README)
+    style: change to code formatting/method used
+    perf: improving code performance
+    test: test a feature
+
+# Summary Rules
+    Correct spelling, avoid capitalisation and punctuation - makes searching easier
+    < 50 characters
+    Be broad, lack of terminology, what the commit is
+    State the type of commit at the start (e.g. Fix - bug fix)
+
+# Description Rules
+    List files changed, actions taken, reasons for commit (e.g. Reported issue)
+    < 75 characters
+    Be specfic, use terminology
