@@ -8,3 +8,4 @@
 ## Javascript Stuff
 - [Challenges](https://www.jschallenger.com/start)
 - [Tutorial](https://javascript.info/)
+- [2nd Tutorial](https://www.guru99.com/using-variables-in-javascript.html)
