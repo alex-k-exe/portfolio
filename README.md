@@ -1,5 +1,5 @@
-## Currently following this tutorial (in chris-courses):
-- [Distance from camera to object](https://pyimagesearch.com/2015/01/19/find-distance-camera-objectmarker-using-python-opencv/)
+## Currently following this tutorial:
+- [Distance from camera to object](https://pyimagesearch.com/2015/01/19/find-distance-camera-objectmarker-using-python-opencv/) - in rubber-duck-racing
 
 ## Robotics Stuff
 - [YOLOv3 from Scratch](https://www.youtube.com/watch?v=Grir6TZbc1M)
