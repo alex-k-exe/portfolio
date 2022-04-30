@@ -1,0 +1,359 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Apply Javascript</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <script>
+         const viewController = {
+             /**
+                viewController
+
+                Handles the input and output from to the web page.
+                access to elements in here need to be prefixed with:
+                =viewController=
+              */
+             buffer0: "",
+             IN: 1,
+             OUT: 2,
+             echoBuffer: () => {
+                 // puts the buffer0 into the echo space.
+                 const echoMe = document.getElementById("echoMe");
+                 echoMe.innerHTML = viewController.buffer0;
+             },
+             keypressedIn0: (e) => {
+                 // handle keys pressed in the input0.
+                 // puts the charaters into buffer0
+                 if (e.keyCode == 13) {// press the enter/ return key.
+                     // but what was in the buffer on into the log space.
+                     viewController.log(viewController.IN, viewController.buffer0);
+
+
+                     // Call =yours= mehtod -- to do something with the input.
+                     // NOTE This is your method call.
+                     yours(viewController.buffer0);
+
+                     // clear the buffer0
+                     viewController.buffer0 = "";
+                     viewController.echoBuffer();
+                     document.getElementById("input0").value = "";
+
+                     return true;
+                 }
+
+                 // any other key pressed - put in the buffer and echo it.
+                 const input0 = document.getElementById("input0");
+                 viewController.buffer0 = input0.value;
+                 viewController.echoBuffer();
+                 return true;
+             },
+             setOutput: (s) => {
+                 // put =s= into the Output space.
+                 const output = document.getElementById("output");
+                 const para = document.createElement("p");
+                 para.innerHTML = s;
+
+                 // the Output has one thing -- clear the previous one.
+                 viewController.clearOutput();
+                 // add the current output
+                 output.appendChild(para);
+
+                 // also logs the output.
+                 viewController.log(viewController.OUT, s);
+             },
+             clearOutput: () => {
+                 // removes contents of Output
+                 const output = document.getElementById("output");
+                 // clear the previous output.
+                 while (output.lastChild) {
+                     output.removeChild(output.lastChild);
+                 }
+             },
+             log: (dir, buff) => {
+                 // add the contents of =buff= onto the log.
+                 // =dir= shows arrows.
+                 const para = document.createElement("p");
+                 para.innerHTML = buff;
+                 paraClass = "logInput";
+                 if (dir == viewController.OUT) {
+                     paraClass = "logOutput";
+                 }
+                 para.classList.add(paraClass);
+                 showResp = document.getElementById("showResp");
+                 showResp.appendChild(para);
+                 showResp.lastChild.scrollIntoView();
+             },
+             clearLog: () => {
+                 // removes the log content.
+                 const showResp = document.getElementById("showResp");
+                 while (showResp.lastChild) {
+                     showResp.removeChild(showResp.lastChild);
+                 }
+             }
+         };
+         
+         // 
+         // you should mess with this part.
+         //
+         function say(myString) {
+             // output method -- to the Output box, and console
+             console.log(myString);
+             viewController.setOutput(myString);
+         }
+
+         let countInput = 1;
+
+         function yours(userInput) {
+             // this is called when there is input.
+
+             // TODO replace with your code.
+
+             if (countInput%3 == 0) {
+             // echo every third input.
+                 say(userInput);
+             }
+             countInput = countInput + 1;
+
+         }
+
+         function afterLoaded() {
+             say("This ran when the page loaded.");
+             // TODO put inital run scripts in here.
+
+             return true;
+         }
+
+         //
+         // ////////////////////////////////////////////////////////////
+        </script>
+
+
+        <!-- View stuff below this line. -->
+        <style>
+         body {
+             display: grid;
+             gap: 0.5rem;
+
+             grid-template-areas:
+                 "input echo"
+                 "output log";
+             align-items: center;
+
+             font-family: sans-serif;
+         }
+         @media screen and (max-width: 50rem) {
+             /* Adjust the layout on thin screens */
+             body {
+                 grid-template-areas:
+                     "input" "echo" "output" "log";
+             }
+         }
+
+         /* boxes and the headings  */
+         .box {
+             margin: 2rem 0.5rem 0;
+             padding: 1rem;
+             border-radius: 1rem;
+             position: relative;
+         }
+         .box h3 {
+             position: absolute;
+             top: -1.8rem;
+             left: 1rem;
+             padding: 0 1rem;
+             border-radius: 1rem;
+         }
+
+         /* echo space */
+         .echoBox {
+             grid-area: echo;
+             min-height: 1rem;
+             background-color: #e8f1fc;
+             border: 2px solid #082041;
+             border-radius: 1rem;
+             padding: 0 1rem;
+         }
+         .echoBox h3 {
+             background-color: #e8f1fc;
+             color:  #082041;
+         }
+         #echoMe {
+             background-color: #fefcfa;
+             padding: 0.5rem;
+             margin-left: 1rem;
+             min-height: 1rem;
+         }
+
+         /* log space */
+         .showLog {
+             grid-area: log;
+             min-height: 2rem;
+             border: 2px solid #2f1d06;
+             border-radius: 1rem;
+             background-color: #fefcfa;
+             padding: 1rem;
+         }
+         .showLog h3 {
+             background-color: #fefcfa;
+             color: #1e1304;
+         }
+         #showResp{
+             margin-top: 1rem;
+             max-height: 12rem;
+             overflow-y: scroll;
+         }
+         #showResp p {
+             margin: 0;
+         }
+         .logInput {
+             color: #3c3c3c;
+         }
+         .logOutput {
+             color: #0073d3;
+         }
+         p.logOutput:before {
+             content: "< ";
+             color: #a8a8a8;
+         }
+         p.logInput::before {
+             content: ">> ";
+             color: #a8a8a8;
+         }
+         #showResp p.logInput:nth-last-child(2),
+         #showResp p.logInput:nth-last-child(1) {
+             position: relative;
+             bottom: 0.1rem;
+             padding-top: 0.8rem;
+         }
+
+         /* input and output - common styles */
+         .ioBox {
+             max-width: 30rem;
+             display: grid;
+             gap: 0.5rem;
+             justify-content: center;
+             padding-top: 1.8rem;
+         }
+         /* input space */
+         .inputBox {
+             grid-area: input;
+             border: 2px solid #041e13;
+             background-color: #fafefc;
+             min-height: 2.3rem;
+         }
+         .inputBox h3 {
+             background-color: #fafefc;
+             color: #041e13;
+         }
+         input {
+             box-sizing: border-box;
+             min-width: 25rem;
+             padding: 0.75rem 1.5rem;
+             border-radius: 0.25rem;
+             font-size: 1.1rem;
+         }
+         input:focus, input:focus-visible {
+             border-color: #0c633e;
+         }
+
+         /* output box */
+         .outputBox {
+             grid-area: output;
+             align-self: start;
+             background-color: #fafcfe;
+             border: 2px solid #040f1e;
+             min-height: 1.8rem;
+
+             display: grid;
+
+         }
+         .outputBox h3 {
+             background-color: #fafcfe;
+             color: #040f1e;
+         }
+         .clearOutput {
+             display:flex;
+             min-height: 3.3rem;
+         }
+         #output {
+             min-width: 25rem;
+             min-height: 1.1rem;
+             font-size: 1.1rem;
+         }
+
+         button {
+             /* make this flat  */
+             padding: 0.25rem 1rem;
+         }
+         .button {
+             border-radius: 0.5rem;
+             border: none;
+         }
+         .button:hover {
+             border-right: 1px gray solid;
+             border-bottom: 1px gray solid;
+         }
+
+         .clearOutBtn {
+             float: right;
+             font-size: 1.5em;
+             border: none;
+             border-radius: 0.25rem;
+             font-weight: 800;
+             color: gray;
+             background-color: inherit;
+         }
+         .clearOutBtn:hover{
+             color: #cc2222;
+         }
+        </style>
+    </head>
+
+    <body onload="afterLoaded();">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">
+            You are using an <strong>outdated</strong> browser. Please
+            <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+            your experience.
+            </p>
+        <![endif]-->
+        <div class="box ioBox inputBox">
+            <h3>Input:</h3>
+            <!-- form to add data -->
+            <input type="text" id="input0" value="" placeholder="type, press enter to add"
+                   onkeyup="viewController.keypressedIn0(event)" autofocus />
+
+            <!-- Shouuld you want addtional inputs:  -->
+            <input type="text" id="input1" value="" placeholder="type, press enter to add"
+                   onkeyup="viewController.keypressedIn0(event)" style="display:none;"/>
+            <!-- TODO ^^^
+                 change the id="MY_NEW_ID"
+                 remove style="display:none" to enable.
+                 Add code to handle the input.
+            -->
+        </div>
+        <div class="echoBox box">
+            <h3>Echo</h3>
+            <p>As you type, I echo:</p>
+            <p id="echoMe"></p>
+        </div>
+        <div class="outputBox box ioBox">
+            <h3>Output:</h3>
+            <div class="clearOutput">
+                <div id="output"></div>
+                <button class="clearOutBtn" onclick="viewController.clearOutput()">X</button>
+            </div>
+        </div>
+        <div class="showLog box">
+            <h3>Log</h3>
+            <button class="button" onclick="viewController.clearLog()" style="float:right;">Clear</button>
+            <div id="showResp"></div>
+        </div>
+    </body>
+</html>
