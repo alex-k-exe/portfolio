@@ -1,61 +1,52 @@
-numbers = [1, 9, 2, 3, 7, 4, 5, 10, 2, 3]
+const exactMath = require("exact-math");
 
-// function Bubble(nums){
-//     /* Changes nums, uses too many variables*/
-//     let swaps = 0;
-//     let swapped = [];
-//     while(true){
-//         for (let i = 0; i < nums.length - 2; i++) {
-//             let earlier = nums[i];
-//             let later = nums[i + 1];
-//             if (earlier > later){
-//                  let temp = earlier;
-//                  earlier = later;
-//                  later = temp;
-//                  swaps = 1;
+// numbers = [1, 9, 2, 3, 7, 4, 5, 10, 2, 3];
+
+// // Bubble sort
+// function Bubble(nums) {
+//     let end = nums.length - 1;
+//     while (end >= -1) {
+//         for (let i = 1; i >= end; i++) {
+//             let before = nums[i - 1];
+//             let after = nums[i];
+//             if (before > after) {
+//                 let temp = after;
+//                 after = before;
+//                 before = temp;
+//                 swaps = 1;
 //             }
+//             end--;
 //         }
-//         swapped.push(nums[nums.length - 1]);
-//         nums.pop();
-//         if (swaps==0){
-//              break;
-//         }
+//         console.log(nums);
 //     }
-//     nums = swaps;
 //     console.log(nums);
 // }
 
-numbers = [1, 9, 2, 3, 7, 4, 5, 10, 2, 3];
+var userInput = "4 2 3 + *"
+var inputs = userInput.split(" ");
+var prev_calc = 0;
+var calc = 0;
 
-function Selection(nums){
-    for(let i = 0; i < nums.length; i++){
-        let small = i;
-        for(let j = i + 1; j < nums.length; j++){
-            if(nums[j] < nums[small]){
-                small = j;
-            }
+for (i = 2; i < inputs.length; i++) {
+    if (isNaN(inputs[i]) = false) {
+        switch (inputs[i]){
+            case "+":
+                calc = inputs[i - 1] + inputs[i - 2];
+                break
+            case "-":
+                calc = inputs[i - 1] - inputs[i - 2];
+                break
+            case "*":
+                calc = inputs[i - 1] * inputs[i - 2];
+                break
+            case "/":
+                calc = inputs[i - 1] / inputs[i - 2];
+                break
+        inputs.pop()
         }
-        let temp = nums[small];
-        nums[small] = nums[i]
-        nums[i] = temp
+    } else if(s){
+
     }
 }
 
-function Binary(target, nums){
-    let low = 0;
-    let high = nums.length - 1;
-    let found = [];
-
-    while(low <= high){
-        let mid = Math.floor(low + high) / 2;
-        if (nums[mid] == target){
-            found.push(nums[mid]);
-        } else if(nums[mid] < target){
-            high = mid - 1;
-        } else if(nums[mid] > target){
-            low = mid + 1;
-        }
-    }
-    return(found);
-}
-Binary(7, numbers);
+console.log("This is your input: ${input}");
