@@ -22,31 +22,12 @@ const exactMath = require("exact-math");
 //     console.log(nums);
 // }
 
-var userInput = "4 2 3 + *"
-var inputs = userInput.split(" ");
-var prev_calc = 0;
-var calc = 0;
+stack = [1, 2];
 
-for (i = 2; i < inputs.length; i++) {
-    if (isNaN(inputs[i]) = false) {
-        switch (inputs[i]){
-            case "+":
-                calc = inputs[i - 1] + inputs[i - 2];
-                break
-            case "-":
-                calc = inputs[i - 1] - inputs[i - 2];
-                break
-            case "*":
-                calc = inputs[i - 1] * inputs[i - 2];
-                break
-            case "/":
-                calc = inputs[i - 1] / inputs[i - 2];
-                break
-        inputs.pop()
-        }
-    } else if(s){
-
-    }
-}
-
-console.log("This is your input: ${input}");
+let output = stack[stack.length - 2] + stack[stack.length - 1];
+stack.pop();
+console.log(`after 1 - ${stack}`);
+stack.pop();
+console.log(`after 2 - ${stack}`);
+stack.push(output);
+console.log(`after 3 - ${stack}`);
