@@ -1,19 +1,38 @@
-# Development
+# sv
 
-Depending on your selected options, your new workspace project contains a workspace member for each platform.
-If you chose to develop with the router feature, each platform crate will have a `views` folder for your platform-specific views.
-You are provided with a `ui` crate for shared UI and if you chose to use fullstack, you will have a `server` crate for your shared server functions.
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-### Serving Your App
+## Creating a project
 
-Navigate to the platform crate of your choice:
-```bash
-cd web
-```
-
-and serve:
+If you're seeing this, you've probably already done this step. Congrats!
 
 ```bash
-dx serve
+# create a new project in the current directory
+npx sv create
+
+# create a new project in my-app
+npx sv create my-app
 ```
 
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.

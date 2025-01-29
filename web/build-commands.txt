@@ -1,6 +1,0 @@
-curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash;
-cargo binstall dioxus-cli --root /.cargo -y --force;
-export PATH="$PATH:/opt/buildhome/.cargo/bin";
-source ~/.bashrc;
-cd web;
-dx bundle --platform web;
