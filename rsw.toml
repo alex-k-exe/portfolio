@@ -31,11 +31,6 @@ dir = "my-template"
 
 [[crates]]
 root = "crates"
-name = "hello-world"
-# link = true
-
-[[crates]]
-root = "crates"
 name = "nannou-1"
 # link = true
 

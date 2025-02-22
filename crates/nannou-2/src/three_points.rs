@@ -1,4 +1,13 @@
-use nannou::prelude::*;
+use nannou::{
+	prelude::*,
+	wgpu::{DeviceDescriptor, Limits},
+};
+
+pub async fn run_app() {
+	app::Builder::new_async(|app| Box::new(model(app)))
+		.run_async()
+		.await;
+}
 
 pub struct Model {
 	primary_points: [Point2; 3],
@@ -9,11 +18,21 @@ pub struct Model {
 const POINT_WIDTH: f32 = 5.;
 const GREYSCALE: bool = false;
 
-pub fn model(app: &App) -> Model {
+pub async fn model(app: &App) -> Model {
+	let device_desc = DeviceDescriptor {
+		limits: Limits {
+			max_texture_dimension_2d: 8192,
+			..Limits::downlevel_webgl2_defaults()
+		},
+		..Default::default()
+	};
+
 	app.new_window()
+		.device_descriptor(device_desc)
 		.view(view)
 		.mouse_pressed(mouse_pressed)
-		.build()
+		.build_async()
+		.await
 		.unwrap();
 
 	let window = app.window_rect();

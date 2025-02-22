@@ -1,28 +1,26 @@
-.dev*
+node_modules
 
-# WASM
-target
-.rsw
-crates/*/pkg/
-crates/*/target/
-crates/*/.vscode
+# Output
+.output
+.vercel
+.netlify
+.wrangler
+/.svelte-kit
+/build
 
-# build output
-dist/
-
-# dependencies
-node_modules/
-
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-
-# environment variables
-.env
-.env.production
-
-# macOS-specific files
+# OS
 .DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+!.env.example
+!.env.test
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+crates/nannou-1/target/*
+crates/nannou-2/target/*
