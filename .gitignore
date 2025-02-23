@@ -22,5 +22,5 @@ Thumbs.db
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-crates/nannou-1/target/*
-crates/nannou-2/target/*
+src/lib/crates/nannou-1/target/*
+src/lib/crates/nannou-2/target/*
