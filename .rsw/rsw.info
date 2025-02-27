@@ -1,3 +1,3 @@
-[RSW::ERR]
-[RSW::NAME] :~> nannou-2
-[RSW::BUILD] :~> wasm-pack build crates\nannou-2 --out-dir pkg --target web --release
+[RSW::OK]
+[RSW::NAME] :~> nannou-1
+[RSW::PATH] :~> C:\Users\alexk\Documents\Github-Repos\portfolio\src/lib/crates\nannou-1\src\three_points.rs

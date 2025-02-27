@@ -3,11 +3,11 @@
 name = "nannou-1"
 description = "template repository to run nannou app both in native app and web browser."
 version = "0.0.1"
-authors = ["You <you@example.com>"]
+authors = ["Alex"]
 categories = ["wasm"]
 readme = "README.md"
 edition = "2018"
-resolver = "2" 
+resolver = "2"
 
 [[bin]]
 name = "nannou_web_compat"

@@ -1,12 +1,11 @@
 // native app entry_point
 
-mod three_points;
-
+mod sketch;
 use async_std::task::block_on;
-use three_points::run_app;
-
+use sketch::{run_app, Model};
 fn main() {
+	let model = Model {};
 	block_on(async {
-		run_app().await;
+		run_app(model).await;
 	});
 }

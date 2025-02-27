@@ -30,13 +30,13 @@ dir = "my-template"
 #! ################# NPM Package #################
 
 [[crates]]
-root = "crates"
-name = "nannou-1"
+root = "src/lib/crates"
+name = "nannou-0"
 # link = true
 
 [[crates]]
-root = "crates"
-name = "nannou-2"
+root = "src/lib/crates"
+name = "nannou-1"
 # link = true
 
 #! When there is only `name`, other fields will use the default configuration

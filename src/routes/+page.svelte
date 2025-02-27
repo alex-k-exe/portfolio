@@ -1,6 +1,17 @@
 <script lang="ts">
-	let projects = ['Given Example', 'Three Squares'];
+	import AspectRatio from '$lib/components/ui/aspect-ratio/aspect-ratio.svelte';
+
+	let projects = ['Given example', 'Three squares'];
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+{#each projects as project, i}
+	<div class="pb-10">
+		<a href={`/${i}`}>{project}</a>
+		<AspectRatio ratio={16 / 9}
+			><img
+				src={`$lib/assets/${project}.png`}
+				alt={`Thumbnail for project named "${project}"`}
+			/></AspectRatio
+		>
+	</div>
+{/each}
