@@ -1,2 +1,2 @@
-nannou-0 :~> src/lib/crates\nannou-0\pkg
-nannou-1 :~> src/lib/crates\nannou-1\pkg
+given-example :~> src/lib/crates\given-example\pkg
+three-squares :~> src/lib/crates\three-squares\pkg

@@ -31,12 +31,12 @@ dir = "my-template"
 
 [[crates]]
 root = "src/lib/crates"
-name = "nannou-0"
+name = "given-example"
 # link = true
 
 [[crates]]
 root = "src/lib/crates"
-name = "nannou-1"
+name = "three-squares"
 # link = true
 
 #! When there is only `name`, other fields will use the default configuration

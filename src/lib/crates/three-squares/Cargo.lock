@@ -1212,21 +1212,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "nannou-1"
-version = "0.0.1"
-dependencies = [
- "async-std",
- "console_error_panic_hook",
- "futures",
- "js-sys",
- "nannou",
- "wasm-bindgen",
- "wasm-bindgen-futures",
- "wasm-bindgen-test",
- "web-sys",
-]
-
-[[package]]
 name = "nannou_core"
 version = "0.18.0"
 source = "git+https://github.com/nannou-org/nannou.git?rev=287be8a4d075b17332ca0bf34649f5d25e751c00#287be8a4d075b17332ca0bf34649f5d25e751c00"
@@ -1993,6 +1978,21 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
+]
+
+[[package]]
+name = "three-squares"
+version = "0.0.1"
+dependencies = [
+ "async-std",
+ "console_error_panic_hook",
+ "futures",
+ "js-sys",
+ "nannou",
+ "wasm-bindgen",
+ "wasm-bindgen-futures",
+ "wasm-bindgen-test",
+ "web-sys",
 ]
 
 [[package]]
