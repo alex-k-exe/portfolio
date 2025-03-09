@@ -2,7 +2,7 @@
 	import AspectRatio from '$lib/components/ui/aspect-ratio/aspect-ratio.svelte';
 	import { convertProjectName } from '$lib/utils';
 
-	let projects = ['Given example', 'Three squares'];
+	let projects = ['Epicyloids', 'Three squares'];
 </script>
 
 <div class="flex flex-wrap gap-5">

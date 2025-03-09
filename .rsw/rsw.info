@@ -1,3 +1,3 @@
-[RSW::OK]
-[RSW::NAME] :~> three-squares
-[RSW::PATH] :~> C:\Users\alexk\Documents\Github-Repos\portfolio\src/lib/crates\three-squares\src\three_points.rs
+[RSW::ERR]
+[RSW::NAME] :~> epicycloids
+[RSW::BUILD] :~> wasm-pack build src/lib/crates\epicycloids --out-dir pkg --target web --release

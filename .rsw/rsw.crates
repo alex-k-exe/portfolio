@@ -1,2 +1,2 @@
-given-example :~> src/lib/crates\given-example\pkg
+epicycloids :~> src/lib/crates\epicycloids\pkg
 three-squares :~> src/lib/crates\three-squares\pkg
