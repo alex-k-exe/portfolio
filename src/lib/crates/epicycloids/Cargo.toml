@@ -1,5 +1,7 @@
+# You must change these to your own details.
 [package]
 name = "epicycloids"
+description = "template repository to run nannou app both in native app and web browser."
 version = "0.0.1"
 authors = ["Alex"]
 categories = ["wasm"]
@@ -31,9 +33,6 @@ nannou = { version = "0.19.0", features = ["wasm-experimental"] }
 geo = "0.29.3"
 nannou_egui = "0.19.0"
 
-
-# The `web-sys` crate allows you to interact with the various browser APIs,
-# like the DOM.
 [dependencies.web-sys]
 version = "0.3.22"
 features = ["console"]

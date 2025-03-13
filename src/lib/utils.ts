@@ -1,3 +1,3 @@
 export function convertProjectName(name: string): string {
-    return name.toLowerCase().replace(' ', '-');
+	return name.trim().toLowerCase().replace(' ', '-');
 }

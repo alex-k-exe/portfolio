@@ -8,13 +8,10 @@ use nannou_egui::{
 use std::cmp::Ordering;
 
 pub async fn run_app() {
-	app::Builder::new_async(|app| Box::new(model(app)))
+	app::Builder::new_async(|app| Box::new(Model::new(app)))
+		.update(update)
 		.run_async()
 		.await;
-}
-
-async fn model(app: &App) -> Model {
-	Model::new(app)
 }
 
 const ROTATING_ANGLE: f32 = 0.5 * PI / 180.0;
@@ -132,12 +129,13 @@ pub struct Model {
 }
 
 impl Model {
-	pub fn new(app: &App) -> Self {
+	pub async fn new(app: &App) -> Self {
 		let window_id = app
 			.new_window()
 			.view(view)
 			.raw_event(raw_window_event)
-			.build()
+			.build_async()
+			.await
 			.unwrap();
 
 		let settings = Settings::new();
@@ -147,7 +145,7 @@ impl Model {
 			state,
 			settings: settings.clone(),
 			unapplied_settings: settings.clone(),
-			egui: Egui::from_window(&app.window(window_id).unwrap()),
+			egui: Egui::from_window(&*app.window(window_id).unwrap()),
 		}
 	}
 }
@@ -161,22 +159,21 @@ pub fn update(_app: &App, model: &mut Model, update: Update) {
 	model.egui.set_elapsed_time(update.since_start);
 	let ctx = model.egui.begin_frame();
 
+	let state = &mut model.state;
+	let settings = &mut model.settings;
+	let unapplied_settings = &mut model.unapplied_settings;
+
 	egui::Window::new("Settings").show(&ctx, |ui| {
-		create_ui(
-			ui,
-			&mut model.state,
-			&mut model.settings,
-			&mut model.unapplied_settings,
-		);
+		create_ui(ui, state, settings, unapplied_settings);
 	});
 
-	if model.settings.collisions_num > 0 {
-		while (model.state.collisions_num as i32) < model.settings.collisions_num {
-			rotate_things(&mut model.state);
+	if settings.collisions_num > 0 {
+		while (state.collisions_num as i32) < settings.collisions_num {
+			rotate_things(state);
 		}
 	} else {
-		for _ in 0..model.settings.speed {
-			rotate_things(&mut model.state);
+		for _ in 0..settings.speed {
+			rotate_things(state);
 		}
 	}
 }

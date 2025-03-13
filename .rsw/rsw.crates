@@ -1,2 +1,2 @@
-epicycloids :~> src/lib/crates\epicycloids\pkg
-three-squares :~> src/lib/crates\three-squares\pkg
+epicycloids :~> src/lib/crates/epicycloids/pkg
+three-squares :~> src/lib/crates/three-squares/pkg
