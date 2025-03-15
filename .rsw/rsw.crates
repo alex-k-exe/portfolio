@@ -1,2 +1,3 @@
 epicycloids :~> src/lib/crates/epicycloids/pkg
-three-squares :~> src/lib/crates/three-squares/pkg
+three_squares :~> src/lib/crates/three_squares/pkg
+game_of_life :~> src/lib/crates/game_of_life/pkg

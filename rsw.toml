@@ -36,7 +36,11 @@ name = "epicycloids"
 
 [[crates]]
 root = "src/lib/crates"
-name = "three-squares"
+name = "three_squares"
+
+[[crates]]
+root = "src/lib/crates"
+name = "game_of_life"
 # link = true
 
 #! When there is only `name`, other fields will use the default configuration

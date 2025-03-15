@@ -1,4 +1,4 @@
-use crate::geometry::{angle_between_points, rotate_point, Direction, Polygon, NO_VERTICES_ERROR};
+use crate::geometry::{angle_between_points, rotate_point, Polygon, NO_VERTICES_ERROR};
 use geom::bounding_rect;
 use nannou::prelude::*;
 use nannou_egui::{
@@ -34,7 +34,7 @@ impl State {
 		let fixed = Polygon::new(settings.fixed_radius, settings.fixed_sides);
 		let mut rotating = Polygon::new(settings.rotating_radius, settings.rotating_sides);
 
-		rotating.align(&fixed, Direction::Above);
+		rotating.align_above(&fixed);
 
 		let rotating_point;
 		let next_point_fixed;

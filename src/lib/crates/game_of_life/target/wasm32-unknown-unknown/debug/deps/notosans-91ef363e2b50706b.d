@@ -1,0 +1,13 @@
+/home/alex/Documents/GithubRepos/portfolio/src/lib/crates/game_of_life/target/wasm32-unknown-unknown/debug/deps/libnotosans-91ef363e2b50706b.rmeta: /home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/src/lib.rs /home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/fonts/NotoSans-Bold.ttf /home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/fonts/NotoSans-BoldItalic.ttf /home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/fonts/NotoSans-Italic.ttf /home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/fonts/NotoSans-Regular.ttf
+
+/home/alex/Documents/GithubRepos/portfolio/src/lib/crates/game_of_life/target/wasm32-unknown-unknown/debug/deps/libnotosans-91ef363e2b50706b.rlib: /home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/src/lib.rs /home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/fonts/NotoSans-Bold.ttf /home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/fonts/NotoSans-BoldItalic.ttf /home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/fonts/NotoSans-Italic.ttf /home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/fonts/NotoSans-Regular.ttf
+
+/home/alex/Documents/GithubRepos/portfolio/src/lib/crates/game_of_life/target/wasm32-unknown-unknown/debug/deps/notosans-91ef363e2b50706b.d: /home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/src/lib.rs /home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/fonts/NotoSans-Bold.ttf /home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/fonts/NotoSans-BoldItalic.ttf /home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/fonts/NotoSans-Italic.ttf /home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/fonts/NotoSans-Regular.ttf
+
+/home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/src/lib.rs:
+/home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/fonts/NotoSans-Bold.ttf:
+/home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/fonts/NotoSans-BoldItalic.ttf:
+/home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/fonts/NotoSans-Italic.ttf:
+/home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0/fonts/NotoSans-Regular.ttf:
+
+# env-dep:CARGO_MANIFEST_DIR=/home/alex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/notosans-0.1.0

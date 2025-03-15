@@ -23,4 +23,4 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
 src/lib/crates/epicycloids/target/*
-src/lib/crates/three-squares/target/*
+src/lib/crates/three_squares/target/*
