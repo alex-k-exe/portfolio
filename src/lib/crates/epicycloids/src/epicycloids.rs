@@ -1,6 +1,9 @@
 use crate::geometry::{angle_between_points, rotate_point, Polygon, NO_VERTICES_ERROR};
 use geom::bounding_rect;
-use nannou::prelude::*;
+use nannou::{
+	prelude::*,
+	wgpu::{DeviceDescriptor, Limits},
+};
 use nannou_egui::{
 	egui::{self, Ui},
 	Egui,
@@ -130,8 +133,17 @@ pub struct Model {
 
 impl Model {
 	pub async fn new(app: &App) -> Self {
+		let device_desc = DeviceDescriptor {
+			limits: Limits {
+				max_texture_dimension_2d: 8192,
+				..Limits::downlevel_webgl2_defaults()
+			},
+			..Default::default()
+		};
+
 		let window_id = app
 			.new_window()
+			.device_descriptor(device_desc)
 			.view(view)
 			.raw_event(raw_window_event)
 			.build_async()
@@ -155,7 +167,7 @@ fn raw_window_event(_app: &App, model: &mut Model, event: &nannou::winit::event:
 	model.egui.handle_raw_event(event);
 }
 
-pub fn update(_app: &App, model: &mut Model, update: Update) {
+pub fn update(app: &App, model: &mut Model, update: Update) {
 	model.egui.set_elapsed_time(update.since_start);
 	let ctx = model.egui.begin_frame();
 
@@ -163,9 +175,12 @@ pub fn update(_app: &App, model: &mut Model, update: Update) {
 	let settings = &mut model.settings;
 	let unapplied_settings = &mut model.unapplied_settings;
 
-	egui::Window::new("Settings").show(&ctx, |ui| {
-		create_ui(ui, state, settings, unapplied_settings);
-	});
+	let window = app.window_rect();
+	egui::Window::new("Settings")
+		.current_pos([window.x.len() / 10., window.y.len() / 4.])
+		.show(&ctx, |ui| {
+			create_ui(ui, state, settings, unapplied_settings);
+		});
 
 	if settings.collisions_num > 0 {
 		while (state.collisions_num as i32) < settings.collisions_num {

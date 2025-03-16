@@ -1,3 +1,3 @@
-[RSW::ERR]
+[RSW::OK]
 [RSW::NAME] :~> game_of_life
-[RSW::BUILD] :~> wasm-pack build src/lib/crates/game_of_life --out-dir pkg --target web --dev
+[RSW::PATH] :~> /home/alex/Documents/GithubRepos/portfolio/src/lib/crates/game_of_life/src/game_of_life.rs

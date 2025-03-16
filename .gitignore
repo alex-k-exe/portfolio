@@ -24,3 +24,4 @@ vite.config.ts.timestamp-*
 
 src/lib/crates/epicycloids/target/*
 src/lib/crates/three_squares/target/*
+src/lib/crates/game_of_life/target/*
