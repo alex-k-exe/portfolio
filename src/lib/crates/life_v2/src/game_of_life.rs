@@ -10,8 +10,8 @@ pub async fn run_app() {
 		.await;
 }
 
-const FPS: u64 = 10;
-const CELL_WIDTH: f32 = 30.;
+const FPS: u64 = 5;
+const CELL_WIDTH: f32 = 60.;
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 enum GameState {
@@ -33,8 +33,8 @@ impl GameState {
 
 #[derive(Debug, Clone)]
 pub struct Model {
-	// Elements of outer Vec are the rows, bool values are the cells
-	cells: Vec<Vec<bool>>,
+	// Inner Vectors are the rows, f32 values are how much each cell is rotated
+	cells: Vec<Vec<f32>>,
 	state: GameState,
 }
 
@@ -50,7 +50,6 @@ impl Model {
 
 		app.new_window()
 			.device_descriptor(device_desc)
-			.mouse_pressed(mouse_pressed)
 			.key_pressed(key_pressed)
 			.view(view)
 			.build_async()
@@ -62,7 +61,7 @@ impl Model {
 
 	fn clear_state() -> Self {
 		Model {
-			cells: vec![vec![false; 20]; 20],
+			cells: vec![vec![0.; 10]; 10],
 			state: GameState::Paused,
 		}
 	}
@@ -72,7 +71,7 @@ impl Model {
 
 		for row in &mut model.cells {
 			for cell in row {
-				*cell = random_f32() > 0.5;
+				*cell = random_f32() * 2. * PI;
 			}
 		}
 		model
@@ -85,20 +84,17 @@ fn view(app: &App, model: &Model, frame: Frame) {
 	draw.background().color(BLACK);
 
 	for (i, row) in model.cells.iter().enumerate() {
-		for (j, cell) in row.iter().enumerate() {
+		for (j, cell_rotation) in row.iter().enumerate() {
 			let x = CELL_WIDTH * (i as f32 + 0.5) - window.w() / 2.;
 			let y = CELL_WIDTH * (j as f32 + 0.5) - window.h() / 2.;
 
-			if *cell {
-				draw.rect().x_y(x, y).w_h(CELL_WIDTH, CELL_WIDTH);
-			} else {
-				draw.rect()
-					.x_y(x, y)
-					.w_h(CELL_WIDTH, CELL_WIDTH)
-					.no_fill()
-					.stroke(GREY)
-					.stroke_weight(1.);
-			}
+			draw.rect()
+				.x_y(x, y)
+				.w_h(CELL_WIDTH * 0.75, CELL_WIDTH * 0.25)
+				.rotate(*cell_rotation)
+				.no_fill()
+				.stroke(GREY)
+				.stroke_weight(1.);
 		}
 	}
 
@@ -111,13 +107,14 @@ pub fn update(app: &App, model: &mut Model, _update: Update) {
 		return;
 	}
 
-	let mut new_cells = vec![vec![false; model.cells[0].len()]; model.cells.len()];
+	let mut new_cells = vec![vec![0.; model.cells[0].len()]; model.cells.len()];
 
 	// Iterate through the cells.
-	for i in 0..model.cells.len() as usize {
-		for j in 0..model.cells[0].len() as usize {
-			// Count the number of live neighbors.
+	for i in 0..model.cells.len() as i32 {
+		for j in 0..model.cells[0].len() as i32 {
+			// Count the number of neighbours and the sum of their angles
 			let mut count = 0;
+			let mut sum = 0.;
 			// TODO: refactor this into one loop
 			for x in -1..=1 {
 				for y in -1..=1 {
@@ -125,8 +122,8 @@ pub fn update(app: &App, model: &mut Model, _update: Update) {
 						continue;
 					}
 
-					let i = i as i32 + x;
-					let j = j as i32 + y;
+					let i = i + x;
+					let j = j + y;
 
 					if i < 0 || i >= model.cells.len() as i32 {
 						continue;
@@ -135,17 +132,12 @@ pub fn update(app: &App, model: &mut Model, _update: Update) {
 						continue;
 					}
 
-					if model.cells[i as usize][j as usize] {
-						count += 1;
-					}
+					count += 1;
+					sum += model.cells[i as usize][j as usize];
 				}
 			}
 
-			if model.cells[i][j] {
-				new_cells[i][j] = count == 2 || count == 3;
-			} else {
-				new_cells[i][j] = count == 3;
-			}
+			new_cells[i as usize][j as usize] = sum / count as f32;
 		}
 	}
 
@@ -153,31 +145,6 @@ pub fn update(app: &App, model: &mut Model, _update: Update) {
 	if model.state == GameState::NextFrame {
 		model.state = GameState::Paused;
 	}
-}
-
-/** When user clicks left mouse button, find the cell that was clicked and toggle it. */
-fn mouse_pressed(app: &App, model: &mut Model, button: MouseButton) {
-	match button {
-		MouseButton::Left => {}
-		_ => return,
-	}
-	if model.state == GameState::Running {
-		return;
-	}
-
-	let window = app.window_rect();
-	let mouse = app.mouse.position();
-
-	let i = ((mouse.x + window.w() / 2.) / CELL_WIDTH) as i32;
-	let j = ((mouse.y + window.h() / 2.) / CELL_WIDTH) as i32;
-
-	let i_is_invalid = i < 0 || i >= model.cells.len() as i32;
-	let j_is_invalid = j < 0 || j >= model.cells[0].len() as i32;
-	if i_is_invalid || j_is_invalid {
-		return;
-	}
-
-	model.cells[i as usize][j as usize] ^= true;
 }
 
 /** When user presses the space bar, toggle the animation. */
