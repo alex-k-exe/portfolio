@@ -17,6 +17,7 @@ export const load: PageServerLoad = async ({ platform }) => {
 	const projectNames = ['Portfolio', 'PT App'];
 	const projects = new Map<string, string>();
 
+	console.log('Hello it me', platform?.env.GITHUB_PAT, GITHUB_PAT);
 	for (const projectName of projectNames) {
 		projects.set(
 			projectName,

@@ -8,8 +8,7 @@ declare global {
 		// interface PageState {}
 		interface Platform {
 			env: {
-				adminPassword: string;
-				DB: D1Database;
+				GITHUB_PAT: string;
 			};
 			context: {
 				waitUntil(promise: Promise<unknown>): void;
