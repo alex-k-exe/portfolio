@@ -73,18 +73,24 @@
 		@apply border-border;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-background p-4 text-lg text-foreground;
 		h1 {
-			@apply my-5 text-center font-sans text-4xl leading-snug;
+			@apply my-5 text-left font-sans text-4xl leading-snug;
 		}
 		h2 {
 			@apply my-4 text-left font-serif text-2xl leading-relaxed;
 		}
 		a {
-			@apply block font-sans text-base text-blue-600 no-underline;
+			@apply font-sans text-blue-600 no-underline;
 		}
 		a:hover {
-			@apply block text-blue-800 underline;
+			@apply text-blue-800 underline;
+		}
+		ul {
+			@apply my-4 list-disc pl-6;
+		}
+		li {
+			@apply mb-2 text-left font-sans leading-normal;
 		}
 	}
 }

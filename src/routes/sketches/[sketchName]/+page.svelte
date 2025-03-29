@@ -1,8 +1,10 @@
 <script lang="ts">
+	import SvelteMarkdown from 'svelte-markdown';
+
 	let { data } = $props();
 </script>
 
-<a href="/">Home</a>
+<a href="/" class="text-3xl">Home</a>
 
 <iframe
 	src={`/sketches/${data.sketchName}/nannou-embed`}
@@ -11,3 +13,5 @@
 	title="Embedded Nannou app"
 >
 </iframe>
+
+<SvelteMarkdown source={data.description}></SvelteMarkdown>

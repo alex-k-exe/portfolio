@@ -4,4 +4,6 @@
 	let { data } = $props();
 </script>
 
-<SvelteMarkdown source={data.} />
+<a href="/" class="text-3xl">Home</a>
+
+<SvelteMarkdown source={data.markdownContent} />

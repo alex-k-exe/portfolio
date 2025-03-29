@@ -1,5 +1,5 @@
-import { convertName } from '$lib/utils';
 import wretch from 'wretch';
+import { GITHUB_PAT } from '$env/static/private';
 
 // Fetch the repository description
 async function fetchRepoDescription(projectName: string) {
@@ -7,6 +7,7 @@ async function fetchRepoDescription(projectName: string) {
 
 	return wretch(apiUrl)
 		.headers({ Accept: 'application/vnd.github.v3+json' })
+		.auth(`Bearer ${GITHUB_PAT}`)
 		.get()
 		.json((data) => data.description || 'No description provided');
 }
@@ -15,9 +16,8 @@ export async function load() {
 	const projectNames = ['Portfolio', 'PT App'];
 	const projects = new Map<string, string>();
 
-	for (const projectName in projectNames) {
-		console.log(`1 ${projectName} ${convertName(projectName)}`);
-		projects.set(projectName, await fetchRepoDescription(convertName(projectName)));
+	for (const projectName of projectNames) {
+		projects.set(projectName, await fetchRepoDescription(projectName));
 	}
 
 	return { sketches: ['Epicycloids', 'Three squares', 'Game of Life'], projects };
