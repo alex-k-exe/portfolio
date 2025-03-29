@@ -82,7 +82,7 @@ impl Model {
 fn view(app: &App, model: &Model, frame: Frame) {
 	let window = app.window_rect();
 	let draw = app.draw();
-	draw.background().color(BLACK);
+	draw.background().color(WHITE);
 
 	for (i, row) in model.cells.iter().enumerate() {
 		for (j, cell) in row.iter().enumerate() {
@@ -90,12 +90,16 @@ fn view(app: &App, model: &Model, frame: Frame) {
 			let y = CELL_WIDTH * (j as f32 + 0.5) - window.h() / 2.;
 
 			if *cell {
-				draw.rect().x_y(x, y).w_h(CELL_WIDTH, CELL_WIDTH);
+				draw.rect()
+					.x_y(x, y)
+					.w_h(CELL_WIDTH, CELL_WIDTH)
+					.color(BLACK)
+					.stroke(GREY)
+					.stroke_weight(1.);
 			} else {
 				draw.rect()
 					.x_y(x, y)
 					.w_h(CELL_WIDTH, CELL_WIDTH)
-					.no_fill()
 					.stroke(GREY)
 					.stroke_weight(1.);
 			}

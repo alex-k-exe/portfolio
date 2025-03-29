@@ -1,3 +1,3 @@
-export function convertProjectName(name: string): string {
+export function convertName(name: string): string {
 	return name.trim().toLowerCase().replaceAll(' ', '_');
 }

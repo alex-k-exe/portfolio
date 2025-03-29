@@ -3,7 +3,7 @@ use geo::{ClosestPoint, Coord, LineString};
 use geom::bounding_rect;
 use nannou::prelude::*;
 
-pub const NO_VERTICES_ERROR: &str = "Polygon should have vertices";
+pub const NO_VERTICES_ERROR: &str = 'Polygon should have vertices';
 
 #[derive(Debug, PartialEq, Clone, Copy)]
 pub struct Line {
@@ -73,7 +73,7 @@ impl Polygon {
 		match closest {
 			geo::Closest::SinglePoint(p) => pt2(p.x(), p.y()).distance(point),
 			geo::Closest::Intersection(_) => 0.,
-			geo::Closest::Indeterminate => panic!("Unable to determine closest point"),
+			geo::Closest::Indeterminate => panic!('Unable to determine closest point'),
 		}
 	}
 }

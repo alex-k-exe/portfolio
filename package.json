@@ -54,6 +54,8 @@
 	"dependencies": {
 		"@sveltejs/adapter-cloudflare": "^5.0.3",
 		"concurrently": "^9.1.2",
-		"mode-watcher": "^0.5.1"
+		"mode-watcher": "^0.5.1",
+		"svelte-markdown": "^0.4.1",
+		"wretch": "^2.11.0"
 	}
 }

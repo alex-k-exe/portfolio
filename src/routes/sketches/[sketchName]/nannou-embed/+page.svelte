@@ -4,7 +4,7 @@
 	let { data } = $props();
 
 	async function loadNannou() {
-		await import(`$lib/crates/${data.projectName}/pkg/nannou_web_test.js`).then(
+		await import(`$lib/crates/${data.sketchName}/pkg/nannou_web_test.js`).then(
 			async ({ default: nannou }) => {
 				await nannou().then((s: { main_web: () => void }) => {
 					s.main_web();
