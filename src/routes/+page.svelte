@@ -41,6 +41,6 @@ Interactive creative coding visualisations
 </div>
 
 <h2>Extended essay</h2>
-3500-word essay evaluating the outsourcing of a SOC rather than social engineering training for a small
-business
-<a href="/ee.pdf">Read it here</a>
+3500-word essay I wrote for high school evaluating the outsourcing of a SOC rather than social engineering
+training for a small business
+<a href="/ee.pdf" class="block">Read it here</a>
