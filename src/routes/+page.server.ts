@@ -8,9 +8,12 @@ async function fetchRepoDescription(projectName: string) {
 	const apiUrl = `https://api.github.com/repos/alex-k-exe/${projectName.toLowerCase().replaceAll(' ', '-')}`;
 
 	return wretch(apiUrl)
-		.headers({ Accept: 'application/vnd.github.v3+json' })
+		.headers({ Accept: 'application/vnd.github.v3+json', 'User-Agent': 'alex-k-exe' })
 		.auth(`Bearer ${GITHUB_PAT}`)
 		.get()
+		.unauthorized(async (err) => {
+			return error(401, 'Cannot fetch description ' + err.message);
+		})
 		.json((data) => data.description || 'No description provided');
 }
 
@@ -18,13 +21,8 @@ export const load: PageServerLoad = async () => {
 	const projectNames = ['Portfolio', 'PT App'];
 	const projects = new Map<string, string>();
 
-	try {
-		for (const projectName of projectNames) {
-			projects.set(projectName, await fetchRepoDescription(projectName));
-		}
-	} catch (e) {
-		console.log(1, e.message);
-		error(400, 'Cannot fetch repo description' + e.message);
+	for (const projectName of projectNames) {
+		projects.set(projectName, await fetchRepoDescription(projectName));
 	}
 
 	return { sketches: ['Epicycloids', 'Three squares', 'Game of Life'], projects };
