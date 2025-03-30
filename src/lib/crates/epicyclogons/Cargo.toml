@@ -1,6 +1,6 @@
 # You must change these to your own details.
 [package]
-name = 'epicycloids'
+name = 'epicyclogons'
 description = 'template repository to run nannou app both in native app and web browser.'
 version = '0.0.1'
 authors = ['Alex']

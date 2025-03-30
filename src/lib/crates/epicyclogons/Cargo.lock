@@ -734,7 +734,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "epicycloids"
+name = "epicyclogons"
 version = "0.0.1"
 dependencies = [
  "async-std",

@@ -1,8 +1,8 @@
-mod epicycloids;
+mod epicyclogons;
 mod geometry;
 
 use async_std::task::block_on;
-use epicycloids::run_app;
+use epicyclogons::run_app;
 use wasm_bindgen::prelude::wasm_bindgen;
 
 // web app entry_point

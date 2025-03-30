@@ -182,7 +182,7 @@ pub fn update(app: &App, model: &mut Model, update: Update) {
 			create_ui(ui, state, settings, unapplied_settings);
 		});
 
-	if settings.collisions_num > 0 {
+	if settings.collisions_num >= 0 {
 		while (state.collisions_num as i32) < settings.collisions_num {
 			rotate_things(state);
 		}

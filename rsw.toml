@@ -31,7 +31,7 @@ dir = "my-template"
 
 [[crates]]
 root = "src/lib/crates"
-name = "epicycloids"
+name = "epicyclogons"
 # link = true
 
 [[crates]]

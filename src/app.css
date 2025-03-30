@@ -75,7 +75,7 @@
 	body {
 		@apply bg-background p-4 text-lg text-foreground;
 		h1 {
-			@apply my-5 text-left font-sans text-4xl leading-snug;
+			@apply my-5 text-left font-serif text-4xl leading-snug;
 		}
 		h2 {
 			@apply my-4 text-left font-serif text-2xl leading-relaxed;

@@ -1,5 +1,6 @@
 # Three squares
 It's my personal favourite because of how simple it is
+
 It is quite laggy though
 
 - Each coloured square is an xy coordinate
