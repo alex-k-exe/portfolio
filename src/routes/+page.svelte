@@ -14,7 +14,7 @@
 <div class="flex flex-wrap">
 	{#each PROJECTS.entries() as projectName}
 		<div class="w-full p-2 sm:w-1/2 lg:w-1/3">
-			<a href={`/projects/${projectName[1]}`}
+			<a href={`/projects/${projectName[1]}`} data-sveltekit-preload-data="hover"
 				>{projectName[0]}
 				<AspectRatio ratio={16 / 9}>
 					<img
@@ -32,7 +32,7 @@ Interactive creative coding visualisations
 <div class="flex flex-wrap">
 	{#each SKETCHES.entries() as sketchName}
 		<div class="w-full p-2 sm:w-1/2 lg:w-1/3">
-			<a href={`/sketches/${sketchName[1]}`}
+			<a href={`/sketches/${sketchName[1]}`} data-sveltekit-preload-data="hover"
 				>{sketchName[0]}
 				<AspectRatio ratio={16 / 9}>
 					<img
