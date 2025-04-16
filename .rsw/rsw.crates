@@ -1,3 +1,0 @@
-epicyclogons :~> src/lib/crates/epicyclogons/pkg
-three_squares :~> src/lib/crates/three_squares/pkg
-game_of_life :~> src/lib/crates/game_of_life/pkg

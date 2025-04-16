@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { SKETCHES } from '$lib/utils.js';
-	import SvelteMarkdown from 'svelte-markdown';
 
 	let { data } = $props();
 </script>
@@ -20,4 +19,5 @@
 >
 </iframe>
 
-<SvelteMarkdown source={data.description}></SvelteMarkdown>
+<!-- <SvelteMarkdown source={data.description}></SvelteMarkdown> -->
+Hello
