@@ -1,7 +1,0 @@
-{
-	"git.ignoreLimitWarning": true,
-	"explorer.sortOrder": "filesFirst",
-	"files.associations": {
-		"*.css": "tailwindcss"
-	}
-}
