@@ -1,0 +1,132 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+    <div class="grid">
+        <div class="cell">Corner</div>
+        <div class="cell">Title</div>
+        <div class="cell lined">Margin</div>
+        <div class="cell lined">
+            Hello<br />
+            Main
+        </div>
+    </div>
+</BaseLayout>
+
+<!-- <div class="paper">
+        <p class="mainText">
+            "Kurt Vonnegut was a guy. He wrote some stuff."\n
+        </p>
+        <p class="icons">Hello</p>
+    </div> -->
+
+<style>
+    body {
+        overflow: hidden;
+        --margin-line: #941c5a;
+        --lines: #1d97b8;
+    }
+
+    .grid {
+        display: grid;
+        width: 100vw;
+        height: 100vh;
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: 1fr 8fr;
+        position: relative;
+    }
+
+    .cell {
+        display: flex;
+        font-size: 1.5rem;
+        padding: 0.5rem;
+    }
+
+    .cell.lined {
+        background-color: #fff;
+        background-image: linear-gradient(
+            var(--lines) 0.05em,
+            transparent 0.05em
+        );
+        background-size: 100% 1.5em;
+        background-color: transparent;
+        line-height: 1.5rem;
+    }
+
+    /* Middle vertical red border */
+    .grid::before {
+        content: "";
+        position: absolute;
+        left: calc(100% / 5);
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background: red;
+        z-index: 2;
+    }
+
+    /*
+        html,
+        body {
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-height: 100%;
+            overflow: hidden;
+        }
+
+        .paper {
+            width: 100vw;
+            height: 100vh;
+            background-color: #fff;
+            background-image: linear-gradient(
+                var(--lines) 0.05em,
+                transparent 0.05em
+            );
+            background-size: 100% 2em;
+
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+            }
+
+            &:before {
+                height: 100%;
+                width: 2px;
+                background-color: var(--margin-line);
+                left: 8em;
+                z-index: 2;
+            }
+
+            &:after {
+                height: 6em;
+                width: 100%;
+                background-color: #fff;
+                left: 0;
+                z-index: 1;
+            }
+        }
+
+        .mainText {
+            position: absolute;
+            top: 6rem;
+            left: 8rem;
+            width: calc(100% - 5rem);
+            height: calc(100% - 7rem);
+            background-color: transparent;
+            border: none;
+            font-family: "Comic Sans";
+            font-size: 2rem;
+            line-height: 1;
+            padding-left: 1rem;
+            margin: 0;
+            resize: none;
+        }
+
+        .icons {
+        } */
+</style>

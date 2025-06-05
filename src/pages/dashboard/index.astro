@@ -1,0 +1,12 @@
+---
+import { NASA_API_KEY } from "../../consts";
+import wretch from "wretch";
+
+const APODresult: { title: string; url: string } = await wretch(
+    `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`,
+)
+    .get()
+    .json();
+---
+
+<img src={APODresult.url} alt={"APOD - " + APODresult.title} />
