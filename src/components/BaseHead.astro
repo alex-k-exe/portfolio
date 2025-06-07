@@ -1,7 +1,7 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import "../app.css";
+import "../styles/global.css";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { ClientRouter } from "astro:transitions";
 
@@ -14,22 +14,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <title>{SITE_TITLE}</title>
 <meta name="description" content={SITE_DESCRIPTION} />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-<!-- Font preloads -->
-<link
-    rel="preload"
-    href="/fonts/atkinson-regular.woff"
-    as="font"
-    type="font/woff"
-    crossorigin
-/>
-<link
-    rel="preload"
-    href="/fonts/atkinson-bold.woff"
-    as="font"
-    type="font/woff"
-    crossorigin
-/>
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />

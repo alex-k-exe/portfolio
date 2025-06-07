@@ -1,0 +1,124 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Robot, Helvetica, sans-serif;
+    background: #fafbfc;
+    color: #222;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    color: #222;
+    line-height: 1.2;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+/* Specific heading sizes and spacing */
+h1 {
+    font-size: 2.5rem;
+    padding-top: 80px;
+}
+
+h2 {
+    font-size: 2rem;
+    padding-top: 60px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    padding-top: 40px;
+}
+
+h4 {
+    font-size: 1.2rem;
+    padding-top: 30px;
+}
+
+h5 {
+    font-size: 1rem;
+    padding-top: 20px;
+}
+
+h6 {
+    font-size: 0.85rem;
+    padding-top: 10px;
+}
+
+/* Anchor tags */
+a {
+    color: #0366d6;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+    color: #004080;
+}
+
+/* Anchor links for headings (optional, if you add anchor icons) */
+.heading-anchor-link {
+    margin-left: 0.5em;
+    color: #bbb;
+    font-size: 0.8em;
+    text-decoration: none;
+    visibility: hidden;
+}
+
+h1:hover .heading-anchor-link,
+h2:hover .heading-anchor-link,
+h3:hover .heading-anchor-link,
+h4:hover .heading-anchor-link,
+h5:hover .heading-anchor-link,
+h6:hover .heading-anchor-link {
+    visibility: visible;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 1.2em;
+    line-height: 1.6;
+}
+
+/* Lists */
+ul,
+ol {
+    margin-top: 0;
+    margin-bottom: 1.2em;
+    padding-left: 2em;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Code blocks */
+pre,
+code {
+    font-family: "Fira Mono", "Consolas", monospace;
+    background: #f5f5f5;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid #eee;
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    color: #555;
+    background: #f9f9f9;
+}

@@ -9,13 +9,18 @@
     "astro": "astro"
   },
   "devDependencies": {
+    "@sveltejs/enhanced-img": "^0.6.0",
     "astro": "^5.8.2",
     "typescript": "^5.8.3",
     "vite": "^6.3.0"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",
+    "@astrojs/svelte": "^7.1.0",
+    "@tailwindcss/vite": "^4.1.8",
     "sharp": "^0.34.1",
+    "svelte": "^5.33.16",
+    "tailwindcss": "^4.1.8",
     "wretch": "^2.11.0"
   }
 }
