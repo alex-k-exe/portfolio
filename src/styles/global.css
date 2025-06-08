@@ -1,51 +1,43 @@
+@import "tailwindcss";
+
 html,
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Robot, Helvetica, sans-serif;
+    font-family: Roboto, Helvetica, sans-serif;
     background: #fafbfc;
     color: #222;
+    line-height: 1.5em;
 }
 
-/* Headings */
 h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
-    font-weight: 700;
-    color: #222;
-    line-height: 1.2;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
+p,
+a {
+    margin-bottom: 10px;
 }
 
 /* Specific heading sizes and spacing */
 h1 {
     font-size: 2.5rem;
-    padding-top: 80px;
 }
 
 h2 {
     font-size: 2rem;
-    padding-top: 60px;
 }
 
 h3 {
     font-size: 1.5rem;
-    padding-top: 40px;
 }
 
 h4 {
     font-size: 1.2rem;
-    padding-top: 30px;
 }
 
 h5 {
     font-size: 1rem;
-    padding-top: 20px;
 }
 
 h6 {
@@ -84,12 +76,6 @@ h6:hover .heading-anchor-link {
     visibility: visible;
 }
 
-/* Paragraphs */
-p {
-    margin-bottom: 1.2em;
-    line-height: 1.6;
-}
-
 /* Lists */
 ul,
 ol {
@@ -121,4 +107,53 @@ blockquote {
     padding: 0.5em 1em;
     color: #555;
     background: #f9f9f9;
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    display: inline-block;
+    padding: 0.5em 1.25em;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 600;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 0.375em;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition:
+        background 0.2s,
+        box-shadow 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+button:focus-visible,
+input[type="button"]:focus-visible,
+input[type="submit"]:focus-visible,
+input[type="reset"]:focus-visible {
+    background-color: #0056b3;
+}
+
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active,
+input[type="reset"]:active {
+    background-color: #004080;
+}
+
+button:disabled,
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+input[type="reset"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
 }

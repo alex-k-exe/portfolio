@@ -1,16 +1,12 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-    <BaseHead />
-    <body>
-        <h1>Alex Kammin's portfolio</h1>
+<BaseLayout>
+    <h1>Alex Kammin's portfolio</h1>
 
-        <h2>Extended essay</h2>
-        3500-word essay I wrote for high school evaluating the outsourcing of a SOC
-        rather than social engineering training for a small business
-        <a href="/ee.pdf" class="block">Read it here</a>
-    </body>
-</html>
+    <h2>Extended essay</h2>
+    3500-word essay I wrote for high school evaluating the outsourcing of a SOC rather
+    than social engineering training for a small business
+    <a href="/ee.pdf" class="block">Read it here</a>
+</BaseLayout>
