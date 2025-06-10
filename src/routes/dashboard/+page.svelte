@@ -91,6 +91,9 @@ Legend:
 		{#await data.newsPromise}
 			Loading...
 		{:then newsResult}
+			{#if newsResult.articles.length === 0}
+				No news is good news. Check back later
+			{/if}
 			{#each newsResult.articles as article, i (i)}
 				<p>
 					<a href={article.url}>{article.title}</a>
@@ -103,7 +106,7 @@ Legend:
 		{#await data.apodPromise}
 			<p>Loading...</p>
 		{:then apodResult}
-			<img src={apodResult.hdurl} alt={'APOD - ' + apodResult.title} class="max-h-150" />
+			<img src={apodResult.url} alt={'APOD - ' + apodResult.title} class="max-h-150" />
 			{apodResult.title}. Find out more at
 			<a href="https://apod.nasa.gov/">NASA's website</a>
 		{/await}
@@ -127,13 +130,12 @@ Legend:
 		{:else}
 			<button onclick={() => (revealQuoteAuthor = true)}>Reveal author</button>
 		{/if}
-		<br />
-		<button onclick={handleGetNewQuote}>Get new quote</button>
-		<br />
-		Inspired by a
-		<a href="https://www.youtube.com/watch?v=0RMdwA8GWB8&pp=ygUMa2FueWUgaGl0bGVy"
-			>Garfunkel and Oates joke</a
-		>
+		<button onclick={handleGetNewQuote} class="float-end">Get new quote</button>
+		<p style="margin-bottom: 0px;">
+			Inspired by a <a href="https://www.youtube.com/watch?v=0RMdwA8GWB8&pp=ygUMa2FueWUgaGl0bGVy"
+				>Garfunkel and Oates joke</a
+			>
+		</p>
 	</div>
 	<div class="bg-(--yellow)">
 		<h3>Analytics for this website</h3>

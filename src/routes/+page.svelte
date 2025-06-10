@@ -7,17 +7,36 @@
 	import instagramOutlined from '$lib/assets/icons/instagramOutlined.svg';
 	import mailOutlined from '$lib/assets/icons/mailOutlined.svg';
 	import mailFilled from '$lib/assets/icons/mailFilled.svg';
+	import ptApp from '$lib/assets/PT-App.png';
+
+	let showPtApp = false;
 </script>
 
 <h2><span>About me</span></h2>
 
+Australian uni student that likes:
+<ul style="margin-bottom: 1.1rem;">
+	<li>Web development</li>
+	<li>Cybersecurity</li>
+	<li>Running — ran a sub-4 hour marathon</li>
+</ul>
+
 <h3><span>Projects</span></h3>
 
 <h4><span>This website</span></h4>
-<p>Font is the <a href="https://plus.excalidraw.com/excalifont">font used for Excalidraw</a></p>
+<p><a href="https://github.com/alex-k-exe/portfolio">Github repository</a></p>
+
+<h4><span>PT App</span></h4>
+<a href="https://github.com/alex-k-exe/pt-app">Github repository</a>
+<button onclick={() => (showPtApp = !showPtApp)} style="display: block">
+	{showPtApp ? 'Hide screenshot' : 'Show screenshot'}
+</button>
+{#if showPtApp}
+	<img src={ptApp} alt="Screenshot of the web app" />
+{/if}
 
 <h4><span>Extended essay</span></h4>
-<p>
+<p class="lg:max-w-[80%]">
 	3500-word essay I wrote for high school evaluating the outsourcing of a SOC rather than social
 	engineering training for a small business.
 	<a href="/ee.pdf">Read it here</a>

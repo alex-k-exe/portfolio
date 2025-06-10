@@ -60,7 +60,6 @@ h4 span {
 
 p {
 	margin-bottom: 1.5rem;
-	max-width: 80%;
 }
 
 /* Anchor tags */
@@ -80,6 +79,8 @@ a:focus {
 ul,
 ol {
 	padding-left: 2em;
+	list-style: revert;
+	margin-bottom: 1.5rem;
 }
 
 /* Images */
@@ -95,11 +96,12 @@ pre,
 code {
 	font-family: 'Fira Mono', 'Consolas', monospace;
 	background: #f5f5f5;
-	margin-top: -0.1em;
-	padding: 0 0.4em;
+	line-height: 1.3em;
+	padding: 0px 0.4em;
+	margin-bottom: 1.5rem;
+	display: inline-block;
 	border-radius: 3px;
 	border: 2px solid grey;
-	max-width: 80%;
 }
 
 /* Blockquotes */
@@ -111,10 +113,7 @@ blockquote {
 	background: #f9f9f9;
 }
 
-button,
-input[type='button'],
-input[type='submit'],
-input[type='reset'] {
+button {
 	display: inline-block;
 	padding: 0.5em 1.25em;
 	font-size: 1rem;
@@ -122,16 +121,16 @@ input[type='reset'] {
 	font-weight: 600;
 	color: #fff;
 	border: none;
+	background-color: var(--background-blue);
 	border-radius: 0.375em;
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
+	margin-top: 0.25rem;
+	margin-bottom: 1.7rem;
 }
 
-button:disabled,
-input[type='button']:disabled,
-input[type='submit']:disabled,
-input[type='reset']:disabled {
+button:disabled {
 	opacity: 0.6;
 	cursor: not-allowed;
 	box-shadow: none;

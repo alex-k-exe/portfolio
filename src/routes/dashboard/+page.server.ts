@@ -3,7 +3,7 @@ import { error } from '@sveltejs/kit';
 import wretch from 'wretch';
 
 export type Props = {
-	apodPromise: Promise<{ title: string; hdurl: string }>;
+	apodPromise: Promise<{ title: string; url: string }>;
 	newsPromise: Promise<{ articles: { title: string; url: string }[] }>;
 };
 
