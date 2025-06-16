@@ -4,7 +4,7 @@ import wretch from 'wretch';
 
 export type Props = {
 	apodPromise: Promise<{ title: string; url: string }>;
-	newsPromise: Promise<{ articles: { title: string; url: string }[] }>;
+	newsPromise: Promise<{ articles: { title: string; url: string }[] } | string>;
 };
 
 export async function load({ platform }) {
@@ -21,6 +21,12 @@ export async function load({ platform }) {
 		`https://newsapi.org/v2/top-headlines?apiKey=${platform.env.NEWS_API_KEY ?? NEWS_API_KEY}&pageSize=3&country=us`
 	)
 		.get()
+		.unauthorized(
+			() =>
+				`401 error: unauthorized request (API key is ${platform.env.NEWS_API_KEY ?? NEWS_API_KEY})`
+		)
+		.forbidden(() => '403 error: forbidden request')
+		.notFound(() => '404 error: resource not found')
 		.json();
 
 	return { apodPromise, newsPromise };

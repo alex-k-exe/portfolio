@@ -33,21 +33,11 @@
 
 <div class="grid">
 	<a href="/" class="hidden place-content-center border-r-2 border-b-2 border-red-500 md:flex"
-		><img
-			class="max-w-1"
-			style="margin-bottom: 0px;"
-			src={profileCircle}
-			alt="Logo - a badly drawn portrait of me"
-		/></a
+		><img src={profileCircle} class="mb0 max-w-1" alt="Logo - a badly drawn portrait of me" /></a
 	>
 	<div class="col-span-2 flex items-center justify-around border-b-2 border-red-500 md:col-auto">
 		<a href="/" class="inline-flex items-center justify-center md:hidden"
-			><img
-				src={profileCircle}
-				style="margin-bottom: 0px;"
-				class="w-20"
-				alt="Logo - a badly drawn portrait of me"
-			/></a
+			><img src={profileCircle} class="mb0 w-20" alt="Logo - a badly drawn portrait of me" /></a
 		>
 		<h1 class="sr-only md:not-sr-only">Alex Kammin's portfolio</h1>
 		{#each pages.slice(1) as page, i (i)}
@@ -55,27 +45,24 @@
 		{/each}
 		<button onclick={toggleAudio} class="musicButton w-10">
 			{#if playMusic}
-				<img src={music} alt="Play music icon" />
+				<img src={music} alt="Play music icon" class="mb0" />
 			{:else}
-				<img src={musicBanned} alt="Pause music icon" />
+				<img src={musicBanned} alt="Pause music icon" class="mb0" />
 			{/if}
 		</button>
 	</div>
 	<div class="lined hidden border-r-2 border-red-500 md:block">
-		<span style="font-size: 2rem; line-height: 1.5;">Navigation</span>
-
+		<h2>Navigation</h2>
 		{#each pages as page, i (i)}
-			<p style="margin-bottom: 0px;">
+			<p class="mb0">
 				<a href={page.href} class={page.href == pageState.url.pathname ? ' bg-(--yellow)' : ''}
 					>{page.title}</a
 				>
 			</p>
 		{/each}
+		<br />
 
-		<button
-			onclick={toggleAudio}
-			style="background-color: transparent; max-width: 125px; align-self: flex-end; justify-content: start;"
-		>
+		<button onclick={toggleAudio} class="wideScreenMusicButton">
 			{#if playMusic}
 				<img src={music} alt="Play music icon" />
 			{:else}
@@ -99,7 +86,7 @@
 	}
 
 	.grid div {
-		padding: 0px 10px;
+		padding: 0px 1rem;
 	}
 
 	.lined {
@@ -112,11 +99,20 @@
 		@media (width >= 48rem /* 768px */) {
 			display: none;
 		}
+		padding: 0px;
+		margin-bottom: 0px;
+	}
+
+	.wideScreenMusicButton {
+		background-color: transparent;
+		max-width: 6rem;
+		align-self: flex-end;
+		justify-content: start;
 		margin: 0px;
 		padding: 0px;
 	}
 
-	.musicButton img {
-		margin: 0px;
+	.mb0 {
+		margin-bottom: 0px;
 	}
 </style>

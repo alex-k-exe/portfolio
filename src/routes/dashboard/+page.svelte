@@ -76,7 +76,7 @@
 		content="Cards that use APIs which I find useful, interesting, or funny"
 	/>
 </svelte:head>
-<h2>Dashboard</h2>
+<h2><span>Dashboard</span></h2>
 
 Legend:
 <div class="flex gap-2">
@@ -91,14 +91,18 @@ Legend:
 		{#await data.newsPromise}
 			Loading...
 		{:then newsResult}
-			{#if newsResult.articles.length === 0}
-				No news is good news. Check back later
+			<!-- Error occurred -->
+			{#if typeof newsResult === 'string'}
+				{newsResult}
+			{:else}{#if newsResult.articles.length === 0}
+					No news is good news. Check back later
+				{/if}
+				{#each newsResult.articles as article, i (i)}
+					<p>
+						<a href={article.url}>{article.title}</a>
+					</p>
+				{/each}
 			{/if}
-			{#each newsResult.articles as article, i (i)}
-				<p>
-					<a href={article.url}>{article.title}</a>
-				</p>
-			{/each}
 		{/await}
 	</div>
 	<div class="bg-(--green)">
